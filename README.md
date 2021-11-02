@@ -56,4 +56,9 @@ A summary of the access policies in place can be found in the table below.
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because with the utilization of Infrastructure as Code (IAC) there is less of a chance of human error. It also much faster to setup, configure, deploy, or tear down machines. 
 
 The playbook implements the following tasks:
-
+* Install docker.io using the apt module
+* Install python3-pip3 using the apt module
+* Install docker using the pip module
+* Use systctl to increase size of virtual memory
+* Download and launch a Docker ELK container with published ports: 5601,9200, and 5044
+* Enable Docker to start on boot
