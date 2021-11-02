@@ -62,3 +62,39 @@ The playbook implements the following tasks:
 * Use systctl to increase size of virtual memory
 * Download and launch a Docker ELK container with published ports: 5601,9200, and 5044
 * Enable Docker to start on boot
+
+The following screenshot displays the result of running docker ps after successfully configuring the ELK instance.
+![](https://github.com/projects-ts/Project-Portfolio-for-GWU-Cybersecurity-Bootcamp/blob/main/Diagrams/docker_ps_output.PNG)
+
+## Target Machines & Beats
+This ELK server is configured to monitor the following machines:
+
+* Web-1: 10.0.0.5
+* Web-2: 10.0.0.6
+* Web-3: 10.0.0.7
+
+We have installed the following Beats on these machines:
+
+* Filebeat
+* Metricbeat
+
+These Beats allow us to collect the following information from each machine:
+
+* Filebeat detects changes to file systems and collects log data to sends them to Elasticsearch or Logstash (for indexing). If a log file is created, edited, or deleted, Filebeat will alert you to those changes.
+* Metricbeat monitors and collects system metrics and stastics and fowards them to Elasticsearch or Logstash. For example, Metricbeat can be utilized to monitor CPU information.
+
+## Using the Playbook
+In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
+SSH into the control node and follow the steps below:
+
+Copy the configuration files ( to /etc/ansible in your Ansible control node.
+Update the _____ file to include .
+Run the playbook, and navigate to http://[*Your ELK Server Public IP*]:5601 to check that the installation worked as expected.
+
+TODO: Answer the following questions to fill in the blanks:
+
+Which file is the playbook? Where do you copy it?
+Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+_Which URL do you navigate to in order to check that the ELK server is running?
+
+As a Bonus, provide the specific commands the user will need to run to download the playbook, update the files, etc.
