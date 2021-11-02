@@ -23,3 +23,35 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the logs and system metrics.
+
+The configuration details of each machine may be found below.
+| Name                 | Function                     | IP Address                                   | Operating System |
+|----------------------|------------------------------|----------------------------------------------|------------------|
+| Jump-Box-Provisioner | Gateway with Ansible Docker  | Private IP: 10.0.0.4 Public IP: 168.61.33.79 | Linux            |
+| Web-1                | Web Server with DVWA Docker  | Private IP: 10.0.0.5                         | Linux            |
+| Web-2                | Web Server with DVWA Docker  | Private IP: 10.0.0.6                         | Linux            |
+| Web-3                | Web Server with DVWA Docker  | Private IP: 10.0.0.7                         | Linux            |
+| ELK-SERVER           | Web Server running ELK Stack | Private IP: 10.1.0.4                         | Linux            |
+
+## Access Policies
+The machines on the internal network are not exposed to the public Internet.
+Only the Jump-Box-Provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+
+* Jump-Box-Provisoner IP 10.0.0.4
+* Local Machine IP
+
+Machines within the network can only be accessed by the Local Machine IP.
+
+A summary of the access policies in place can be found in the table below.
+
+| Name                 | Publicly Accessible | Allowed IP Addresses                                          |
+|----------------------|---------------------|---------------------------------------------------------------|
+| Jump-Box-Provisioner | Yes                 | Local Machine IP                                              |
+| Web-1                | No                  | 10.1.0.4                                                      |
+| Web-2                | No                  | 10.1.0.4                                                      |
+| Web-3                | No                  | 10.1.0.4                                                      |
+| ELK-SERVER           | Yes                 | 10.1.0.4, Kibana over port 5601, Elasticsearch over port 9200 |
+
+## Elk Configuration
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because allows 
+
