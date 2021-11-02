@@ -53,5 +53,7 @@ A summary of the access policies in place can be found in the table below.
 | ELK-SERVER           | Yes                 | 10.1.0.4, Kibana over port 5601, Elasticsearch over port 9200 |
 
 ## Elk Configuration
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because allows 
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because with the utilization of Infrastructure as Code (IAC) there is less of a chance of human error. It also much faster to setup, configure, deploy, or tear down machines. 
+
+The playbook implements the following tasks:
 
