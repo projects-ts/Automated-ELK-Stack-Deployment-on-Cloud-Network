@@ -1,4 +1,6 @@
 # Automated ELK Stack Deployment
+### Created by: Travis Sherwood
+
 The files in this repository were used to configure the network depicted below.
 
 ![](https://github.com/projects-ts/Project-Portfolio-for-GWU-Cybersecurity-Bootcamp/blob/main/Diagrams/Azure%20Network%20Diagram%20with%20ELK%20Stack%20Configuration%20for%20Cloud%20Monitoring.png)
