@@ -102,3 +102,61 @@ Example:
 | 10.1.0.4 ansible_python_interpreter=/usr/bin/python3 |
 
 * Run the playbook, and navigate to http://[*Your ELK Server Public IP*]:5601 to check that the installation worked as expected.
+
+## Commands
+### Commands for ELK Server Setup:
+
+- **SSH into JumpBox**
+  - ssh (username)@(Jump-Box-Provisioner Public IP)
+- **Attach Ansible container**
+  - sudo docker container list -a
+  - sudo docker start (ansible container)
+  - sudo docker attach (ansible container)
+- **Add IP address to hosts file**
+  - sudo nano /etc/ansible/hosts
+- **Add ELK server IP**
+  - [elk]
+  - 10.1.0.4 ansible\_python\_interpreter=/usr/bin/python3
+- **Add username to ansible configuration**
+  - cd /etc/ansible
+  - sudo nano ansible.cfg
+- **Add username**
+  - Remote\_user = (username)
+- **Run ELK playbook**
+  - ansible-playbook install-elk.yml
+- **SSH into ELK server**
+  - ssh (username)@(ELK sever Private IP)
+
+### Commands for Filebeat setup
+
+- **SSH into JumpBox**
+  - ssh (username)@(Jump-Box-Provisioner Public IP)
+- **SSH into ELK Server**
+  - ssh (username)@(ELK Server Private IP)
+- **Edit Filebeat configuration file after copying it into the /etc/ansible directory**
+  - sudo nano /etc/ansible/filebeat-config.yml
+    - **Edits to Make:** 
+      - Scroll to the Elasticsearch output field and add the ELK Sever IP to the hosts with port 9200
+        - Example: hosts: [10.1.0.4:9200]
+      - Scroll to the Kibana field and add the ELK Server IP to the host with port 5601
+        - Example: host: “10.1.0.4:5601”
+- **Add the Filebeat Playbook (filebeat-playbook.yml) to /etc/ansible directory**
+- **Run the Filebeat Playbook**
+  - ansible-playbook filebeat-playbook.yml
+
+### Commands for Metricbeat Setup
+
+- **SSH into JumpBox**
+  - ssh (username)@( Jump-Box-Provisioner Public IP)
+- **SSH into ELK Server**
+  - ssh (username)@(ELK Server Private IP)
+- **Edit Metricbeat configuration file after copying it into the /etc/ansible directory**
+  - sudo nano /etc/ansible/metricbeat-config.yml
+    - **Edits to Make:**
+      - Scroll to Elasticsearch output field and add ELK Server IP to the hosts with port 9200
+        - Example: hosts: [10.1.0.4:9200]
+      - Scroll to Kibana field and ad the ELK Server IP to the host with port 5601
+        - Example: host: “10.1.0.1:5601”
+- **Add the Metricbeat Playbook (metricbeat-playbook.yml) to the /etc/ansible directory**
+- **Run the Metricbeat Playbook**
+  - ansible-playbook metricbeat-playbook.yml
